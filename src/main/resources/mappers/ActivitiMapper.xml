@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cqkj.activiti6demo.mapper.ActivitiMapper">
+
+    <select id="findUserById" parameterType="java.lang.String" resultType="com.cqkj.activiti6demo.pojo.CustomUser">
+        SELECT * FROM `CSTM_ID_USER` WHERE ID_ = #{userId}
+    </select>
+
+    <select id="findGroupsByUserId" parameterType="java.lang.String" resultType="com.cqkj.activiti6demo.pojo.CustomGroup">
+        SELECT * FROM `CSTM_ID_MEMBERSHIP` WHERE USER_ID_ = #{userId}
+    </select>
+
+    <select id="findTaskInfo" parameterType="java.lang.String" resultType="com.cqkj.activiti6demo.pojo.TaskInfo">
+        SELECT * FROM `ACT_RU_TASK` WHERE ID_ = #{taskId}
+    </select>
+    <select id="findAllProcDef" resultType="com.cqkj.activiti6demo.pojo.ProcDef">
+        SELECT * FROM `ACT_RE_PROCDEF` ORDER BY VERSION_ ASC
+    </select>
+</mapper>
